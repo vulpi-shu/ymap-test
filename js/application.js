@@ -19,7 +19,7 @@ angular.module('lgx', ['ui.router', 'yaMap', 'dnd'])
   }
 
   $scope.view_card = function(elem) {
-    console.log(elem)
+    $scope.$emit('view_card', elem)
   }
 
 })
@@ -32,7 +32,22 @@ angular.module('lgx', ['ui.router', 'yaMap', 'dnd'])
     $stateProvider
       .state('state1', {
         url: "/state1",
-        templateUrl: "partials/state1.html"
+        templateUrl: "partials/state1.html",
+        controller: function($scope) {
+
+          $scope.view_cards = []
+
+          $scope.$on('view_card', function(ev, el) {
+            $scope.view_cards.push(el)
+          })
+
+          $scope.remove_card = function(el) {
+            $scope.view_cards.splice(
+              $scope.view_cards.indexOf(el), 1
+            )
+          }
+
+        }
       })
       .state('view_card', {
         url: "/state2",

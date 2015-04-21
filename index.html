@@ -47,6 +47,11 @@
         </ul>
       </div>
     </div>
+
+    <div class="window panel panel-default object-card" ng-repeat="object in view_cards" dnd-draggable="true">
+      {{object.name}}
+      <button ng-click="remove_card(object)">close</button>
+    </div>
   </script>
 
   <script type="text/ng-template" id="partials/tree_node.html">
@@ -54,7 +59,7 @@
       <a ng-click="view_card(item)" ng-if="item.id">{{item.name}}</a>
       <span ng-if="!item.id">{{item.name}}</span>
 
-      <button ng-click="expand(item)"></button>
+      <button ng-click="expand(item)" ng-if="item.children"></button>
       <ul class="list-unstyled" ng-show="item.expanded">
         <ng-include ng-repeat="item in item.children" src="'partials/tree_node.html'" in-init="item=item"></ng-include>
       </ul>
