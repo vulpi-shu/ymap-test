@@ -13,6 +13,7 @@
   <script src="js/ya-map-2.1.min.js"></script>
   <script src="js/angular-dnd.js"></script>
   <script src="js/application.js"></script>
+  <script src="js/data.js"></script>
 
   <meta charset="utf-8" />
 </head>
@@ -40,12 +41,24 @@
     </div>
 
     <div class="window panel panel-default object-tree" dnd-draggable="true">
-      window object-tree
+      <div ng-controller="treeCtl">
+        <ul class="list-unstyled">
+          <ng-include ng-repeat="item in tree" src="'partials/tree_node.html'" in-init="item=item"></ng-include>
+        </ul>
+      </div>
     </div>
   </script>
 
-  <script type="text/ng-template" id="partials/state1.list.html">
+  <script type="text/ng-template" id="partials/tree_node.html">
+    <li>
+      <a ng-click="view_card(item)" ng-if="item.id">{{item.name}}</a>
+      <span ng-if="!item.id">{{item.name}}</span>
 
+      <button ng-click="expand(item)"></button>
+      <ul class="list-unstyled" ng-show="item.expanded">
+        <ng-include ng-repeat="item in item.children" src="'partials/tree_node.html'" in-init="item=item"></ng-include>
+      </ul>
+    </li>
   </script>
 
   <script type="text/ng-template" id="partials/state2.html">

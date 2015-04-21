@@ -5,9 +5,25 @@
 
 
 angular.module('lgx', ['ui.router', 'yaMap', 'dnd'])
+.controller('treeCtl', function($scope, data) {
+  $scope.tree = angular.extend({}, data.tree)
 
-.config(function($stateProvider, $urlRouterProvider) {
+  expand_all = function (item) {
+    item.expanded = true
+    angular.forEach(item.children, expand_all)
+  }
+  expand_all($scope.tree[0])
 
+  $scope.expand = function(element) {
+    element.expanded = !element.expanded
+  }
+
+  $scope.view_card = function(elem) {
+    console.log(elem)
+  }
+
+})
+.config(function($stateProvider, $urlRouterProvider, data) {
     //
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/state1");
@@ -18,23 +34,9 @@ angular.module('lgx', ['ui.router', 'yaMap', 'dnd'])
         url: "/state1",
         templateUrl: "partials/state1.html"
       })
-      .state('state1.list', {
-        url: "/list",
-        templateUrl: "partials/state1.list.html",
-        controller: function($scope) {
-          $scope.items = ["A", "List", "Of", "Items"];
-        }
-      })
-      .state('state2', {
+      .state('view_card', {
         url: "/state2",
         templateUrl: "partials/state2.html"
       })
-      .state('state2.list', {
-        url: "/list",
-        templateUrl: "partials/state2.list.html",
-        controller: function($scope) {
-          $scope.things = ["A", "Set", "Of", "Things"];
-        }
-      });
 
 })

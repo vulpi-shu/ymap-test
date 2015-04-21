@@ -39,8 +39,16 @@ ya-map {
 .window.object-tree {
   left: 5%;
   top: 100px;
+  width: 300px;
+}
+.panel {
+  padding: 10px;
 }
 
 .navbar-form .form-control {
   width: 83.33333333%;
+}
+
+.list-unstyled {
+  margin-left: 15px;
 }
