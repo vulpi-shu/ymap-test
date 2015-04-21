@@ -11,7 +11,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
   <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
   <script src="js/ya-map-2.1.min.js"></script>
+  <script src="js/angular-dnd.js"></script>
   <script src="js/application.js"></script>
+
+  <meta charset="utf-8" />
 </head>
 <body>
 
@@ -19,9 +22,25 @@
 
   <script type="text/ng-template" id="partials/state1.html">
     <div class="container">
-      <ya-map ya-zoom="12" ya-center="[37.588227,55.733835]" ya-controls="" class="map">
+      <ya-map ya-zoom="12" ya-center="[37.588227,55.733835]" ya-controls="zoomControl" class="map">
         <ya-geo-object ya-source="point" ya-options="{preset: 'islands#redDotIcon'}"></ya-geo-object>
       </ya-map>
+    </div>
+
+    <div class="window search navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-form row">
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control col-md-10" placeholder="Поиск">
+            <div class="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="window panel panel-default object-tree" dnd-draggable="true">
+      window object-tree
     </div>
   </script>
 

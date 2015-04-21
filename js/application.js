@@ -1,6 +1,10 @@
 // http://tulov-alex.ru/2.1/cluster/create
 
-angular.module('lgx', ['ui.router', 'yaMap'])
+
+// http://vulpi-shu.github.io/ymap-test/#/state1
+
+
+angular.module('lgx', ['ui.router', 'yaMap', 'dnd'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
