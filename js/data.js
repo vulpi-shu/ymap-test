@@ -1,3 +1,49 @@
+
+getRandom = function(max) {
+  max +=1
+  x = parseInt(Math.random() * 100 % max)
+
+  if(x > 0) {
+    return x
+  } else {
+    return getRandom(max)
+  }
+}
+
+coords = [
+  [37.411961,55.831903],[37.565466,55.763338],[37.565466,55.763338],[37.616378,55.744522],[37.642889,55.780898],
+  [37.435983,55.793559],[37.675638,55.800584],[37.589988,55.716733],[37.56084,55.775724],[37.433781,55.822144],
+  [37.669838,55.87417],[37.482338,55.71677],[37.75021,55.78085],[37.654142,55.810906],[37.713329,55.865386],
+  [37.525797,55.847121],[37.710743,55.778655],[37.717934,55.623415],[37.737,55.863193],[37.760113,55.86677],
+  [37.730838,55.698261],[37.564769,55.6338],[37.5394,55.639996],[37.405853,55.69023],[37.5129,55.77597],
+  [37.44218,55.775777],[37.440448,55.811814],[37.404853,55.751841],[37.728976,55.627303],[37.597163,55.816515],
+  [37.689397,55.664352],[37.600961,55.679195],[37.658425,55.673873],[37.605126,55.681006],[37.431744,55.876327],
+  [37.778445,55.843363],[37.549348,55.875445],[37.702087,55.662903],[37.434113,55.746099],[37.712326,55.83866],
+  [37.415725,55.774838],[37.630223,55.871539],[37.571271,55.657037],[37.711026,55.691046],[37.65961,55.803972],
+  [37.452759,55.616448],[37.442781,55.781329],[37.74887,55.844708],[37.406067,55.723123],[37.48498,55.858585]
+]
+
+organizations = []
+
+for(key in coords) {
+  organizations.push({
+    name: "Организация №" + key,
+    coords: coords[key],
+    role: ['carrier', 'warehouse', 'broker'][getRandom(3)-1],
+    city_id: getRandom(3)
+  })
+}
+
+get_city_organizations = function(city_id) {
+  var orgs = []
+  for(key in organizations) {
+    if(organizations[key].city_id == city_id) orgs.push(organizations[key])
+  }
+
+  console.log(orgs)
+  return orgs;
+}
+
 angular.module('lgx').constant('data',
   {
     tree: [
@@ -9,45 +55,24 @@ angular.module('lgx').constant('data',
             type: 'area',
             name: 'НСО',
             children: [
+
               {
-                name: 'Участники системы',
-                children: [
-                  {
-                    id:   '1',
-                    type: 'role',
-                    name: 'Перевозчики'
-                  },
-                  {
-                    id:   '2',
-                    type: 'role',
-                    name: 'Склады'
-                  },
-                  {
-                    id:   '3',
-                    type: 'role',
-                    name: 'Брокеры'
-                  }
-                ]
+                id:   1,
+                type: 'city',
+                name: 'Новосибирск',
+                entities: get_city_organizations(1)
               },
               {
-                name: 'Города',
-                children: [
-                  {
-                    id:   '1',
-                    type: 'city',
-                    name: 'Новосибирск'
-                  },
-                  {
-                    id:   '2',
-                    type: 'city',
-                    name: 'Бердск'
-                  },
-                  {
-                    id:   '3',
-                    type: 'city',
-                    name: 'Искитим'
-                  }
-                ]
+                id:   2,
+                type: 'city',
+                name: 'Бердск',
+                entities: get_city_organizations(2)
+              },
+              {
+                id:   3,
+                type: 'city',
+                name: 'Искитим',
+                entities: get_city_organizations(3)
               }
             ]
             // END AREA
@@ -55,13 +80,6 @@ angular.module('lgx').constant('data',
         ]
       }
     ],
-    orgs: [
-      {
-        name: 'Organization 1',
-        coords: {
-
-        }
-      }
-    ]
+    orgs: organizations
   }
 )
