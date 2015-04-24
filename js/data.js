@@ -30,6 +30,18 @@ for(key in coords) {
     name: "Организация №" + key,
     coords: coords[key],
     role: ['carrier', 'warehouse', 'broker'][getRandom(3)-1],
+    address: 'Россия, Новосибирск, 630090, Ул Терешковой 8, кв 215',
+    phone: '3343463566',
+    email: 'trttr@list.ru',
+    description: 'Автомобилей: 20 \n\
+      Из них: \n\
+      Камаз: 12 \n\
+      Газель: 8 \n\
+      \n\
+      Список маршрутов: \n\
+        Омск-Новосибирск \n\
+        Омск-Томск \n\
+        Омск-Колывань',
     city_id: getRandom(3)
   })
 }

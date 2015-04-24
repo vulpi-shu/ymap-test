@@ -95,12 +95,26 @@
       </div>
     </div>
 
-    <div class="window panel panel-default object-card" ng-repeat="object in element_cards" dnd-draggable="true" dnd-draggable-opts = "{handle: '.handle'}">
+    <div class="window panel panel-default object-card element" ng-repeat="object in element_cards" dnd-draggable="true" dnd-draggable-opts = "{handle: '.handle'}">
       <div class="handle" dnd-draggable-handle></div>
       <div class='exit' ng-click="remove_element_card(object)"></div>
 
       <div class="wrapper">
         <h4 class="window-title" ng-if="object.name">{{object.name}}</h4>
+
+        <dl class="dl-horizontal">
+          <dt>Адрес</dt>
+          <dd>{{object.address}}</dd>
+
+          <dt>Телефон</dt>
+          <dd>{{object.phone}}</dd>
+
+          <dt>Эл. почта</dt>
+          <dd>{{object.email}}</dd>
+        </dl>
+
+        <hr/>
+        <pre>{{object.description}}</pre>
 
       </div>
     </div>
