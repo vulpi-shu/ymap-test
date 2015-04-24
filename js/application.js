@@ -110,6 +110,17 @@ angular.module('lgx', ['ui.router', 'yaMap', 'dnd', 'perfect_scrollbar'])
             $scope.show_element_card(target.properties.get('organization'))
           }
 
+
+//          $scope.route_finder = true
+
+          $scope.show_route_finder = function () {
+            $scope.route_finder = true
+          }
+
+          $scope.hide_route_finder = function () {
+            $scope.route_finder = false
+          }
+
         }
       })
       .state('view_card', {

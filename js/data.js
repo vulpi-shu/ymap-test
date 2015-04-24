@@ -35,8 +35,8 @@ for(key in coords) {
     email: 'trttr@list.ru',
     description: 'Автомобилей: 20 \n\
       Из них: \n\
-      Камаз: 12 \n\
-      Газель: 8 \n\
+        Камаз: 12 \n\
+        Газель: 8 \n\
       \n\
       Список маршрутов: \n\
         Омск-Новосибирск \n\
@@ -52,7 +52,6 @@ get_city_organizations = function(city_id) {
     if(organizations[key].city_id == city_id) orgs.push(organizations[key])
   }
 
-  console.log(orgs)
   return orgs;
 }
 
