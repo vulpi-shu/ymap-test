@@ -148,6 +148,10 @@ button.route:hover {
   top: 100px;
   width: 700px;
   height: 520px;
+  text-align: center;
+}
+.window.panel.route_finder label{
+  text-align: right;
 }
 
 .form-buttons {
@@ -246,4 +250,174 @@ h4 {
 
 .dl-horizontal dd {
   margin-left: 110px;
+}
+
+.panel {
+  background-color: transparent;
+}
+
+.btn-plus-route {
+  border-radius: 50%;
+  padding: 8px 12px;
+  margin: 10px 0px;
+}
+
+hr {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.panel-group .panel {
+  padding: 0px;
+  width: 620px;
+}
+.panel-body {
+  padding: 7px;
+}
+/*.route_finder .wrapper {*/
+  /*position: relative;*/
+/*}*/
+.route_finder .buttons {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 45px;
+  padding-top: 5px;
+  background: repeating-linear-gradient(
+    -55deg,
+    #222,
+    #222 10px,
+    #333 10px,
+    #333 20px
+  );
+}
+.route_finder h3 {
+  text-align: left;
+}
+.route_finder .btn {
+  color: #ffffff;
+}
+.route_finder .buttons .pull-right {
+  margin-right: 25px;
+}
+
+.route_finder a {
+  color: #444444;
+}
+
+a:focus {
+  -webkit-appearance: none;
+  outline: none;
+}
+
+
+
+
+
+.ps-container.ps-active-x > .ps-scrollbar-x-rail, .ps-container.ps-active-y > .ps-scrollbar-y-rail {
+  display: block; }
+.ps-container > .ps-scrollbar-x-rail {
+  display: none;
+  position: absolute;
+  /* please don't change 'position' */
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -moz-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -o-transition: background-color 0.2s linear, opacity 0.2s linear;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+  bottom: 3px;
+  /* there must be 'bottom' for ps-scrollbar-x-rail */
+  height: 8px; }
+.ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+  position: absolute;
+  /* please don't change 'position' */
+  background-color: #aaa;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  bottom: 0;
+  /* there must be 'bottom' for ps-scrollbar-x */
+  height: 8px; }
+.ps-container > .ps-scrollbar-x-rail.in-scrolling {
+  background-color: #eee;
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90); }
+.ps-container > .ps-scrollbar-y-rail {
+  display: none;
+  position: absolute;
+  /* please don't change 'position' */
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -moz-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -o-transition: background-color 0.2s linear, opacity 0.2s linear;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+  right: 3px;
+  /* there must be 'right' for ps-scrollbar-y-rail */
+  width: 8px; }
+.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+  position: absolute;
+  /* please don't change 'position' */
+  background-color: #aaa;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  right: 0;
+  /* there must be 'right' for ps-scrollbar-y */
+  width: 8px; }
+.ps-container > .ps-scrollbar-y-rail.in-scrolling {
+  background-color: #eee;
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90); }
+.ps-container:hover > .ps-scrollbar-x-rail, .ps-container:hover > .ps-scrollbar-y-rail {
+  opacity: 0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60); }
+.ps-container:hover > .ps-scrollbar-x-rail.in-scrolling, .ps-container:hover > .ps-scrollbar-y-rail.in-scrolling {
+  background-color: #eee;
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90); }
+.ps-container:hover > .ps-scrollbar-x-rail:hover {
+  background-color: #eee;
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90); }
+.ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
+  background-color: #999; }
+.ps-container:hover > .ps-scrollbar-y-rail:hover {
+  background-color: #eee;
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90); }
+.ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
+  background-color: #999; }
+
+
+.scroller {
+  overflow: hidden;
+
 }

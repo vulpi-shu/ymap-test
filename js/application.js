@@ -2,8 +2,14 @@
 // https://github.com/Tuch/angular-dnd
 
 // http://vulpi-shu.github.io/ymap-test/#/state1
+window.ID = ID = function () {
+  // Math.random should be unique because of its seeding algorithm.
+  // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+  // after the decimal.
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
 
-angular.module('lgx', ['ui.router', 'yaMap', 'dnd', 'perfect_scrollbar'])
+angular.module('lgx', ['ui.router', 'yaMap', 'dnd', 'perfect_scrollbar', 'ui.bootstrap'])
 .controller('treeCtl', function($scope, data) {
   $scope.tree = angular.extend({}, data.tree)
 
@@ -111,7 +117,16 @@ angular.module('lgx', ['ui.router', 'yaMap', 'dnd', 'perfect_scrollbar'])
           }
 
 
-//          $scope.route_finder = true
+          $scope.route_finder = true
+
+          $scope.route_rules = []
+          $scope.add_route_rule = function () {
+            $scope.route_rules.push({id: ID()})
+          }
+
+          $scope.remove_rule = function (rule) {
+            $scope.route_rules.splice($scope.route_rules.indexOf(rule), 1)
+          }
 
           $scope.show_route_finder = function () {
             $scope.route_finder = true
